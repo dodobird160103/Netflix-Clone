@@ -1,0 +1,31 @@
+.header {
+    background: black;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.header img {
+    height: 2rem;
+}
+
+.list{
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+
+
+.list a {
+    margin: 2rem;   
+}
+
+.icon {
+    color: white;
+}
+
+svg {
+    cursor: pointer;
+}
