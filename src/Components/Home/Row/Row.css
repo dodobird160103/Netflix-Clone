@@ -1,0 +1,21 @@
+
+.home {
+    background: rgb(16,16,16);
+}
+
+.row {
+    margin-top: 1rem;
+    margin: 1rem;
+}
+
+.row:hover {
+    overflow-x: visible;
+}
+
+h2 {
+    text-align: left;
+    font-size: 20px;
+    color: white;  
+    margin-left: 1rem;   
+    font-weight: 400; 
+}
