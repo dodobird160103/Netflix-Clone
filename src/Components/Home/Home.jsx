@@ -2,8 +2,10 @@ import './Home.css';
 
 export const Home = () => {
     return(
-        <div className='main'>
-            Home s
-        </div>
+        <section className="home">
+            <div className="banner">
+                
+            </div>
+        </section>
     )
 }

@@ -26,6 +26,11 @@
     color: white;
 }
 
-svg {
+.header svg {
     cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.header svg:hover {
+    color: rgba(216, 216, 216);
 }
