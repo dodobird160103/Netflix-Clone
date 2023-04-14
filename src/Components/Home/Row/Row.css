@@ -19,3 +19,34 @@ h2 {
     margin-left: 1rem;   
     font-weight: 400; 
 }
+
+.card {
+
+    display: flex;
+    justify-content: left;
+    height: 320px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    align-items: center;
+    margin-top: -1rem;
+    width: 100%;
+    
+}
+/*
+.card::-webkit-scrollbar {
+    display: none;
+}
+*/
+
+.image:hover {
+    transform: translateY(-10px) scale(1.1);
+    transition: 0.5s;
+}
+
+.image img {
+    width: 200px;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    
+}

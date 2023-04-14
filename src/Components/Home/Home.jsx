@@ -1,35 +1,38 @@
 import './Home.css';
 import { Row } from './Row/Row';
-import axois from "axios";
-import { useEffect } from 'react';
+import { Banner } from './Banner/Banner';
 
 export const Home = () => {
 
-    const apiKey = "87b91e596b93c0a797945593f9a30864";
-    const url = "https://api.themoviedb.org/3";
-
-    useEffect(() => {
-
-        const FetchData = async() => {
-            const { data }= await axois.get(`${url}/movie/550?api_key=${apiKey}`)
-            console.log(data);
-        };
-        
-        FetchData();
-      
-    }, [])
+    const API_KEY = "87b91e596b93c0a797945593f9a30864";
     
+    const request = {
+        fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
+        fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
+        fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
+        fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
+        fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
+        fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
+        fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
+        fetchDocumentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`
+    }  
+
     return(
         <section className="home">
+            
+            {/* Banner Image */}
+            <Banner fetchURL={request.fetchNetflixOriginals} />
 
-            <div className="banner"></div>
-
-            <Row title={"Popular On Netflix"}/>
-            <Row title={"Movies"}/>
-            <Row title={"Tv Shows"}/>
-            <Row title={"Recently Viewed"}/>
-            <Row title={"My List"}/>       
-
+            {/* Row Categories */}
+            <Row title={"Netflix Originals"} fetchURL={request.fetchNetflixOriginals}/>
+            <Row title={"Trending Now"} fetchURL= {request.fetchTrending}/>
+            <Row title={"Top Rated"} fetchURL= {request.fetchTopRated}/>
+            <Row title={"Action Movies"} fetchURL= {request.fetchActionMovies}/>
+            <Row title={"Comedy Movies"} fetchURL= {request.fetchComedyMovies}/>
+            <Row title={"Horror Movies"} fetchURL= {request.fetchHorrorMovies}/>
+            <Row title={"Romance Movies"} fetchURL= {request.fetchRomanceMovies}/>
+            <Row title={"Documentaries"} fetchURL= {request.fetchDocumentaries}/>
+            
         </section>
     )
 }

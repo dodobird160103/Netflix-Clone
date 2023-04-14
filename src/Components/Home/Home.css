@@ -3,3 +3,6 @@
     background-color: rgb(16,16,16);
 }
 
+.banner img {
+    object-fit: contain;
+}
