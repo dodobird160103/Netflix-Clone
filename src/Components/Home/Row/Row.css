@@ -32,11 +32,25 @@ h2 {
     width: 100%;
     
 }
-/*
-.card::-webkit-scrollbar {
-    display: none;
+
+::-webkit-scrollbar {
+    width: 10px;
 }
-*/
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(16,16,16); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
 .image:hover {
     transform: translateY(-10px) scale(1.1);
