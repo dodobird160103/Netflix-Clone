@@ -2,7 +2,8 @@
     color: white;
     object-fit: contain;
     height: 448px;
-    z-index: 1;
+    position: relative;
+    top: -5rem;
 }
 
 .banner__contents {
@@ -37,8 +38,8 @@
     padding: 1rem;;
     width: 150px;
     border: none;
-    background: white;
-    color: black;
+    background: #454545;
+    color: white;
     outline: none;
     display: flex;
     gap: 10px;
@@ -59,4 +60,15 @@
 
 .banner__button:hover {
     cursor: pointer;
+}
+
+/***** */
+.fade--bottom {
+    height: 7.4rem;
+    background-image: linear-gradient(
+        180deg, 
+        transparent, 
+        rgba(16,16,16,0.61),
+        #111
+    );
 }

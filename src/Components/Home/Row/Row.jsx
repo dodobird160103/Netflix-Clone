@@ -1,11 +1,13 @@
 import './Row.css';
-
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import Youtube from 'react-youtube';
+import movieTrailer from 'movie-trailer';
 
 export const Row = ({title, fetchURL}) => {
     const [movies, setmovies] = useState([]);
+    const [trailerURL, setTrailerUrl] = useState("");
 
     const BaseURL = "https://api.themoviedb.org/3";
     const imgURL = "https://image.tmdb.org/t/p/original";
@@ -25,6 +27,29 @@ export const Row = ({title, fetchURL}) => {
 
     }, [fetchURL]);
 
+    const opts = {
+        height: "390",
+        width: "100%",
+        playerVars: {
+            autoplay: 1
+        },
+    };
+
+    const handleClick = (item) => {
+        if(trailerURL)
+        {
+            setTrailerUrl('');
+        }
+        else
+        {
+            movieTrailer(item.name || "").then(url => {
+                const urlParams = new URLSearchParams (new URL(url).search);
+                setTrailerUrl(urlParams.get('v'));
+                console.log(setTrailerUrl(urlParams.get('v')));
+            }).catch(error => console.log(error));
+            
+        }
+    }
 
     return(
         <>
@@ -36,15 +61,14 @@ export const Row = ({title, fetchURL}) => {
                     movies.map((item) => {
                         return(
                             <div className="image" key={item.id}>
-                                <img src={`${imgURL}${item.poster_path}`} alt="movie" />
+                                <img src={`${imgURL}${item.poster_path}`} alt="movie" onClick={() => handleClick(item)}/>
                             </div>
                         )        
                 })
                 }
             </div>
         </div>
-
-        
+        { trailerURL && <Youtube videoId={trailerURL} opts={opts} /> }
         </>
     )
 }

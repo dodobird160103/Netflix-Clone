@@ -53,6 +53,8 @@ export const Banner = ({fetchURL}) => {
                 </h4>
             </div>
 
+            <div className="fade--bottom">
+            </div>
         </header>
     )
 }
