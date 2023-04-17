@@ -66,3 +66,8 @@ h2 {
     border-radius: 1.5rem;
     
 }
+
+.html5-video-player {
+    position: relative;
+    top:-2rem;
+}
